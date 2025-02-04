@@ -23,14 +23,14 @@ pipeline {
         }
         stage ("Log in to docker hub") {
             steps {
-                withDockerRegistry([credentialId: 'docker-hub-credentials', url:'https://index.docker.io/v1']) {
+                withDockerRegistry([credentialsId: 'docker-hub-credentials', url:'https://index.docker.io/v1']) {
                     sh 'echo "Logged into docker hub successfully"'
                 }
             }
         }
         stage ("Push Image to  docker hub") {
             steps {
-                withDockerRegistry([credentialId: 'docker-hub-credentials', url:'https://index.docker.io/v1']) {
+                withDockerRegistry([credentialsId: 'docker-hub-credentials', url:'https://index.docker.io/v1']) {
                     sh 'docker push $DOCKER_IMAGE'
                 }
             }
