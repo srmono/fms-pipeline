@@ -1,0 +1,40 @@
+version: '3.8'
+
+networks:
+  fleetnetwork:  #  Define the network
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: fleetdb
+      MYSQL_USER: fleetuser
+      MYSQL_PASSWORD: fleetpassword
+    ports:
+      - "3306:3306"
+    networks:
+      - fleetnetwork  #  Attach MySQL to the network
+
+    #  Add healthcheck for MySQL
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-prootpassword"]
+      interval: 10s
+      retries: 5
+      start_period: 10s
+
+  app:
+    build: .
+    container_name: fleetmanagement-container
+    restart: always
+    depends_on:
+      mysql:
+        condition: service_healthy  #  Wait for MySQL healthcheck before starting
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=mysql;Database=fleetdb;User=fleetuser;Password=fleetpassword;
+    ports:
+      - "5222:5222"
+    networks:
+      - fleetnetwork  #  Attach app to the same network
