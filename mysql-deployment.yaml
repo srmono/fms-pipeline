@@ -1,0 +1,48 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata:
+  name: mysql 
+  namespace: fleet-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql 
+  template:
+    metadata:
+      labels: 
+        app: mysql 
+    spec:
+      containers:
+        - name: mysql 
+          image: mysql:8.0
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "rootpassword"
+            - name: MYSQL_DATABASE
+              value: "fleetdb" 
+            - name: MYSQL_USER
+              value: "fleetuser"
+            - name: MYSQL_PASSWORD
+              value: "fleetpassword"
+          ports: 
+            - containerPort: 3306 
+          livenessProbe:
+            exec:
+              command: ["mysqladmin", "ping", "-h", "localhost"]
+            initialDelaySeconds: 30
+            periodSeconds: 10
+---
+apiVersion: v1 
+kind: Service 
+metadata:
+  name: mysql 
+  namespace: fleet-namespace
+spec:
+  selector:
+    app: mysql
+  ports:
+    - protocol: TCP 
+      port: 3306 
+      targetPort: 3306 
+  clusterIP: none # Headless service for database

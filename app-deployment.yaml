@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fleetmanagement
+  namespace: fleet-namespace
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fleetmanagement
+  template:
+    metadata:
+      labels:
+        app: fleetmanagement
+    spec:
+      containers:
+        - name: fleetmanagement
+          image: ustapi/new-fms-dotnet:latest
+          ports:
+            - containerPort: 5222
+          env:
+            - name: DB_HOST
+              value: "mysql"
+            - name: DB_PORT
+              value: "3306"
+            - name: DB_NAME
+              value: "fleetdb"
+            - name: DB_USER
+              value: "fleetuser"
+            - name: DB_PASSWORD
+              value: "fleetpassword"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fleetmanagement-service
+  namespace: fleet-namespace
+spec:
+  selector:
+    app: fleetmanagement
+  ports:
+    - protocol: TCP
+      port: 80             # External port (ClusterIP or LoadBalancer)
+      targetPort: 5222     # Matches containerPort in Deployment
+  type: ClusterIP  # Use "LoadBalancer" if exposing externally
