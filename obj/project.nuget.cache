@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OeTWsCz2lVU=",
+  "dgSpecHash": "PTer+yQcIaM=",
   "success": true,
-  "projectFilePath": "I:\\Training\\Just_Compile\\Daimler\\phase2\\c#.net_stack\\resources\\fms\\fleetmanagement\\fleetmanagement.csproj",
+  "projectFilePath": "I:\\Training\\Just_Compile\\Daimler\\phase2\\c#.net_stack\\jenkins_pipeline\\fleetmanagement\\fleetmanagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bvsra\\.nuget\\packages\\fastendpoints\\5.33.0\\fastendpoints.5.33.0.nupkg.sha512",
     "C:\\Users\\bvsra\\.nuget\\packages\\fastendpoints.attributes\\5.33.0\\fastendpoints.attributes.5.33.0.nupkg.sha512",
@@ -50,5 +50,12 @@
     "C:\\Users\\bvsra\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
     "C:\\Users\\bvsra\\.nuget\\packages\\system.threading.channels\\6.0.0\\system.threading.channels.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

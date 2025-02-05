@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "I:\\Training\\Just_Compile\\Daimler\\phase2\\c#.net_stack\\resources\\fms\\fleetmanagement\\fleetmanagement.csproj": {}
+    "I:\\Training\\Just_Compile\\Daimler\\phase2\\c#.net_stack\\jenkins_pipeline\\fleetmanagement\\fleetmanagement.csproj": {}
   },
   "projects": {
-    "I:\\Training\\Just_Compile\\Daimler\\phase2\\c#.net_stack\\resources\\fms\\fleetmanagement\\fleetmanagement.csproj": {
+    "I:\\Training\\Just_Compile\\Daimler\\phase2\\c#.net_stack\\jenkins_pipeline\\fleetmanagement\\fleetmanagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\Training\\Just_Compile\\Daimler\\phase2\\c#.net_stack\\resources\\fms\\fleetmanagement\\fleetmanagement.csproj",
+        "projectUniqueName": "I:\\Training\\Just_Compile\\Daimler\\phase2\\c#.net_stack\\jenkins_pipeline\\fleetmanagement\\fleetmanagement.csproj",
         "projectName": "fleetmanagement",
-        "projectPath": "I:\\Training\\Just_Compile\\Daimler\\phase2\\c#.net_stack\\resources\\fms\\fleetmanagement\\fleetmanagement.csproj",
+        "projectPath": "I:\\Training\\Just_Compile\\Daimler\\phase2\\c#.net_stack\\jenkins_pipeline\\fleetmanagement\\fleetmanagement.csproj",
         "packagesPath": "C:\\Users\\bvsra\\.nuget\\packages\\",
-        "outputPath": "I:\\Training\\Just_Compile\\Daimler\\phase2\\c#.net_stack\\resources\\fms\\fleetmanagement\\obj\\",
+        "outputPath": "I:\\Training\\Just_Compile\\Daimler\\phase2\\c#.net_stack\\jenkins_pipeline\\fleetmanagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bvsra\\AppData\\Roaming\\NuGet\\NuGet.Config",
